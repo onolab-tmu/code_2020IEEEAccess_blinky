@@ -21,7 +21,7 @@ python ${CODE_DIR}/experiment_processing.py ${EXP_DIR}/protocol.json -v hori_5
 python ${CODE_DIR}/data_preparation.py ${EXP_DIR}/protocol.json -n 1
 
 # Train the DNN
-python ${CODE_DIR}/ml_localization/train.py ${CODE_DIR}/dnn/config/resnet_dropout.json
+python ${CODE_DIR}/ml_localization/train.py ${CODE_DIR}/dnn/config/resnet_dropout.json --gpu none
 
 # Evaluate on the test set
 python ${CODE_DIR}/test.py ${EXP_DIR}/protocol.json ${CODE_DIR}/dnn/config/resnet_dropout.json
