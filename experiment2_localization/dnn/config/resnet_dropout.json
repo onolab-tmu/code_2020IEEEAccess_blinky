@@ -1,0 +1,27 @@
+{
+  "name" : "resnet_dropout",
+
+  "description" : "10 layers resnet with 0.1 dropout on input",
+
+  "training" : {
+    "batchsize" : 200,
+    "epoch" : 3000,
+    "out" : "pub_2018_ASJ_fall/dnn/results/resnet_dropout"
+  },
+
+  "model" : {
+    "name" : "ResReg",
+    "args" : [3, 101, 20, 2],
+    "kwargs" : {
+      "dropout" : 0.1
+    },
+    "file" : "pub_2018_ASJ_fall/dnn/models/resnet_dropout.npz"
+  },
+
+  "data" : {
+    "file" : "/datanet/projects/otohikari/measurements/20180703/learning_data/data.json.gz",
+    "format_kwargs" : {
+      "method" : "none"
+    }
+  }
+}

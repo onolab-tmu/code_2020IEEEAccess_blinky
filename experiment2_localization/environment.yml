@@ -1,0 +1,10 @@
+name: 2020_access_blinky_exp2
+dependencies:
+  - python
+  - numpy
+  - scipy
+  - matplotlib
+  - seaborn
+  - pandas
+  - opencv
+  - chainer

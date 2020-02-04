@@ -1,0 +1,25 @@
+{
+  "name" : "MLP_2layers_avg",
+
+  "description" : "Multi-layer perceptron with 2 layers, each half the nodes of the previous one.",
+
+  "training" : {
+    "batchsize" : 1000,
+    "epoch" : 10000,
+    "out" : "pub_2018_ASJ_fall/dnn/results"
+  },
+
+  "model" : {
+    "name" : "MLP",
+    "args" : [[200, 100, 50], 2],
+    "kwargs" : {},
+    "file" : "pub_2018_ASJ_fall/dnn/models/mlp_blinky_locator.npz"
+  },
+
+  "data" : {
+    "file" : "/datanet/projects/otohikari/measurements/20180703/learning_data/data_norm.json.gz",
+    "format_kwargs" : {
+      "method" : "none"
+    }
+  }
+}

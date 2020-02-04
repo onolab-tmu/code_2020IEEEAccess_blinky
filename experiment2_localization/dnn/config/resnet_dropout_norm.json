@@ -1,0 +1,27 @@
+{
+  "name" : "resnet_dropout_norm",
+
+  "description" : "10 layers resnet with 0.1 dropout on input, normalized regression vectors",
+
+  "training" : {
+    "batchsize" : 1000,
+    "epoch" : 20000,
+    "out" : "pub_2018_ASJ_fall/dnn/results/resnet_dropout_norm"
+  },
+
+  "model" : {
+    "name" : "ResReg",
+    "args" : [10, 100, 10, 2],
+    "kwargs" : {
+      "dropout" : 0.1
+    },
+    "file" : "pub_2018_ASJ_fall/dnn/models/resnet_dropout_norm.npz"
+  },
+
+  "data" : {
+    "file" : "/datanet/projects/otohikari/measurements/20180703/learning_data/data_norm.json.gz",
+    "format_kwargs" : {
+      "method" : "none"
+    }
+  }
+}
