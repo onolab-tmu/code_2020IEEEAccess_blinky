@@ -2,7 +2,10 @@
 
 echo $0
 CODE_DIR=$(dirname $0)
-EXP_DIR=$1
+EXP_DIR="data"
+
+# Get the data
+python ${CODE_DIR}/get_data.py ${EXP_DIR}/protocol.json
 
 # This extracts the blinky tracks from the video, as
 # well as the audio source locations when the RC car is used

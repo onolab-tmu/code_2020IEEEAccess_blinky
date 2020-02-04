@@ -20,16 +20,11 @@
 """
 This script can be used to download the data used in the experiments.
 """
+import argparse
 import json
 import os
 import hashlib
 from urllib.request import urlretrieve, urlopen
-
-protocol_filename = "data/protocol.json"
-data_folder = os.path.split(protocol_filename)[0]
-
-# zenodo base URL
-base_url = "https://zenodo.org/record/3635263/files"
 
 
 def md5(fname, CHUNK=16384):
@@ -75,11 +70,26 @@ def recursive_mkdir(path):
 
 def get_data():
 
+    parser = argparse.ArgumentParser(description="Download all the videos from Zenodo")
+    parser.add_argument(
+        "protocol_file",
+        type=str,
+        help="The protocol file containing the video information",
+    )
+    args = parser.parse_args()
+
+    protocol_filename = args.protocol_file
+    data_folder = os.path.split(protocol_filename)[0]
+
     # Get the list of videos
     with open(protocol_filename, "r") as f:
         protocol = json.load(f)
         videos = protocol["videos"]
 
+    # zenodo base URL
+    base_url = protocol["zenodo_url"]
+
+    # Download and check all the videos
     for name, path in videos.items():
         video_folder, video_filename = os.path.split(path)
 

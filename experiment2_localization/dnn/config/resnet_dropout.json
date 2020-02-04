@@ -6,7 +6,7 @@
   "training" : {
     "batchsize" : 200,
     "epoch" : 3000,
-    "out" : "pub_2018_ASJ_fall/dnn/results/resnet_dropout"
+    "out" : "dnn/results/resnet_dropout"
   },
 
   "model" : {
@@ -15,11 +15,11 @@
     "kwargs" : {
       "dropout" : 0.1
     },
-    "file" : "pub_2018_ASJ_fall/dnn/models/resnet_dropout.npz"
+    "file" : "dnn/models/resnet_dropout.npz"
   },
 
   "data" : {
-    "file" : "/datanet/projects/otohikari/measurements/20180703/learning_data/data.json.gz",
+    "file" : "data/learning_data/data.json.gz",
     "format_kwargs" : {
       "method" : "none"
     }
