@@ -3,14 +3,11 @@ import os
 from pathlib import Path
 
 import numpy as np
-from numpy.lib.stride_tricks import as_strided
-from scipy.signal import fftconvolve
-from scipy.io import wavfile
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 import seaborn as sns
 
-from viewer import BlinkyFile, blinky_non_linearity_inv
+from blinkytools import BlinkyFile, blinky_non_linearity_inv
 
 from blinky import (
     blinky_signal_aggregation,
@@ -100,9 +97,9 @@ if __name__ == "__main__":
         os.mkdir(FOLDER_FIG)
 
     # Some matplotlib preliminaries for pdf output
-    plt.rcParams["pdf.fonttype"] = 42
-    # plt.rcParams["font.family"] = "Calibri"
-    plt.rcParams["font.family"] = "CMU Sans Serif"
+    # Uncomment this if you have CMU Sans Serif installed
+    # plt.rcParams["pdf.fonttype"] = 42
+    # plt.rcParams["font.family"] = "CMU Sans Serif"
 
     # Plot a comparison graph
     sns.set_context("paper")
@@ -151,13 +148,9 @@ if __name__ == "__main__":
     calib.legend(fontsize="x-small")
     calib.set_title("Power After Calibration")
     calib.set_xlabel("Time [s]")
-    # Subscript 10 is \u2081\u2080 in unicode, however,
-    # my system computer modern font do not support it
-    # we use instead small capitals
-    calib.set_ylabel("10 log\uf731\uf730(Power)")
+    # Subscript 10 is \u2081\u2080 in unicode
+    calib.set_ylabel("10 log\u2081\u2080(Power)")
     calib.set_xlim(t_inter)
 
     fig.savefig(FOLDER_FIG / Path("figure_blinky_calibration.pdf"))
     fig.savefig(FOLDER_FIG / Path("figure_blinky_calibration.png", dpi=300))
-
-    plt.show()

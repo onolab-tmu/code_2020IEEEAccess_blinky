@@ -1,0 +1,10 @@
+name: 2020_access_blinky_exp1
+dependencies:
+  - python=3.7
+  - numpy
+  - scipy
+  - matplotlib
+  - seaborn
+  - pip
+  - pip:
+    - blinkytools
